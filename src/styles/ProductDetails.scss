@@ -1,0 +1,104 @@
+.productDetails{
+
+    padding: 3rem;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 2rem;
+
+    @media (max-width: 1025px){
+        grid-template-columns: 1fr;
+    }
+}
+
+.productImage{
+    width: 100%;
+    min-height: 200px;
+    background-color: red;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media (max-width: 1025px){
+        width: inherit;
+    }
+}
+
+.productDescription{
+
+    .productName{
+        color: rebeccapurple;
+        padding-bottom: 3rem;
+
+        @media (max-width: 1025px){
+            padding-top: 3rem;
+        }
+    }
+
+    .details{
+        color: gray;
+    }
+
+    .details,
+    .description,
+    .productPrice,
+    .quantityContainer{
+        padding-bottom: 1rem;
+    }
+
+    .details,
+    .productPrice,
+    .description,
+    .quantityText,
+    .quantityInput{
+        font-size: 1.1rem;
+    }
+
+    .description{
+        text-align: justify;
+
+        @media (max-width: 1025px){
+            font-size: 1rem;
+        }
+    }
+
+    .productPrice{
+        padding: 2rem 0;
+    }
+
+    .quantityContainer{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+
+    .quantityText{
+        padding-right: 1.5rem;
+    }
+
+    .quantityInput{
+        padding: 0.8rem;
+        border: 1px solid red;
+        width: 100px;
+
+    }
+
+    .addToCartBtn{
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        border: 1px solid red;
+
+        span{
+            padding-left: 0.5rem;
+        }
+
+        transition: 0.3s ease;
+
+        &:hover{
+            cursor: pointer;
+            background-color: aqua;
+        }
+    }
+
+}
+

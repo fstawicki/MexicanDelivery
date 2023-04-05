@@ -1,0 +1,24 @@
+
+
+
+
+.heroBanner{
+    width: 100%;
+
+    text-align: center;
+    background-color: goldenrod;
+    background-image: url('../assets/a.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2{
+        font-size: 3rem;
+    }
+
+}

@@ -1,0 +1,78 @@
+
+.navbar{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100px;
+    padding: 0 2rem;
+
+    background-color: white;
+    color: black;
+
+
+    //reset <Link> styling
+    a{
+        text-decoration: none;
+        color: black;
+    }
+
+}
+
+.navbar_left{
+    
+    .menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+    
+        .menuitem{
+            padding-right: 1rem;
+        }
+
+    }
+}
+
+
+.navbar_logo{
+    
+    h1{
+        transition: 0.4s ease;
+
+        &:hover{
+            cursor: pointer;
+            color: white
+        }
+    }
+}
+
+
+.navbar_right{
+
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: row;
+
+    p{
+        font-size: 1.5rem;
+        transition: 0.3s ease;
+        text-decoration: none;
+
+        .cart_quantity{
+            
+            background-color: orange;
+            border-radius: 50%;
+            margin-left: 0.3rem;
+            padding: 0 0.4rem;
+        }
+
+        &:hover{
+            cursor: pointer;
+            color: rgb(0, 51, 0);
+        }
+    }
+  
+}

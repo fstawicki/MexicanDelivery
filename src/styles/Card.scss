@@ -1,0 +1,63 @@
+.card{
+    //for grid purposes
+    justify-self: center;
+
+    width: 300px;
+
+    transition: 0.3s ease;
+
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+
+}
+
+.productImg{
+    width: 100%;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: aquamarine;
+
+    border-radius: 3%;
+}
+
+.productName{
+    font-size: 1.1rem;
+    color: rgb(90, 90, 90);
+
+    padding-top: 1.2rem;
+}
+
+.productPrice{
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+}
+
+.addBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    
+
+    font-size: 1.2rem;
+    border: 1px solid turquoise;
+    background-color: white;
+
+    transition: 0.3s ease;
+
+    &:hover{
+        cursor: pointer;
+        background-color: turquoise;
+    }
+
+    span{
+        margin-left: 0.3rem;
+    }
+
+}
