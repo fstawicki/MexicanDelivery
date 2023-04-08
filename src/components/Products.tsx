@@ -1,5 +1,6 @@
-import {FC} from 'react';
+import {FC, useEffect, useState} from 'react';
 import Card from './Card';
+import axios from 'axios';
 
 import '../styles/Products.scss';
 import HeroBanner from './HeroBanner';
@@ -10,20 +11,28 @@ interface Props{
 
 const Products: FC <Props> = () => {
 
+    const options = {
+    method: 'GET',
+    url: 'https://the-mexican-food-db.p.rapidapi.com/',
+    headers: {
+        'X-RapidAPI-Key': '0e080c7fe2mshbaae96571089130p16a7bbjsn016819b32a15',
+        'X-RapidAPI-Host': 'the-mexican-food-db.p.rapidapi.com'
+    }
+    };
+
+    axios.get(options.url, { headers: options.headers })
+    .then(function (response: { data: any; }){
+        console.log(response.data.slice(0,10));
+    }).catch(function (error: any) {
+        console.error(error);
+    });
+
     return(
         <>
         <HeroBanner />
         <div className="products">
             <h2>See all dishes here:</h2>
             <div className="gridContainer">
-                <Card productName={'1'} productPrice={30} />
-                <Card productName={'2'} productPrice={0} />
-                <Card productName={'3'} productPrice={0} />
-                <Card productName={'4'} productPrice={0} />
-                <Card productName={'5'} productPrice={0} />
-                <Card productName={'6'} productPrice={0} />
-                <Card productName={'7'} productPrice={0} />
-                <Card productName={'8'} productPrice={0} />
             </div>
         </div>
         </>
