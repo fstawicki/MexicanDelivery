@@ -1,9 +1,10 @@
 import {FC, useEffect, useState} from 'react';
-import Card from './Card';
-import axios, { all } from 'axios';
+import axios from 'axios';
 
 import '../styles/Products.scss';
+
 import HeroBanner from './HeroBanner';
+import Card from './Card';
 
 interface Props{
 
@@ -32,7 +33,6 @@ const Products: FC <Props> = () => {
         return Math.floor(Math.random() * 100) + 1;
     }
 
-
     useEffect(() => {
         
         axios.get(options.url, { headers: options.headers })
@@ -44,6 +44,7 @@ const Products: FC <Props> = () => {
 
     },[])
 
+    
     return(
         <>
         <HeroBanner />
@@ -52,7 +53,14 @@ const Products: FC <Props> = () => {
             <div className="gridContainer">
                 {
                     allProducts.map((product) => (
-                        <Card key={product.id} productID={product.id} productName={product.title} productPrice={randomPrice()} imageURL={product.image} productAlt={product.title} />
+                        <Card
+                            key={product.id} 
+                            productID={product.id} 
+                            productName={product.title}
+                            productPrice={randomPrice()} 
+                            imageURL={product.image} 
+                            productAlt={product.title} 
+                        />
                     ))
                 }
             </div>
