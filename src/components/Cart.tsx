@@ -1,24 +1,35 @@
 import {FC} from 'react';
 import { FaShoppingCart } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 
-interface Props{
+import '../styles/Cart.scss';
 
-}
+interface Props{}
 
 const Cart: FC<Props> = () => {
-    return(
-        <div className="Cart">
-            <h1 className="title"><FaShoppingCart /> My Cart:</h1>
-            <div className="item">
-                <img src="" alt="" />
-                
-            </div>
 
+    return(
+
+        <div className="Cart">
+            <h2 className="title"><FaShoppingCart/><span>My Cart:</span></h2>
+            <div className="item">
+                <p>Product Name</p>
+                <p>Price</p>
+                <p>Quantity</p>
+                <p>Remove Item</p>
+            </div>
+            <div className="item">
+                <p>aaaaaaaaaaaaa aaaaaaaaa ssssss sss</p>
+                <p>22 zł</p>
+                <input type="number" name="" id="" />
+                <p className='deleteItemBtn'><a href=""><MdDeleteForever/></a></p>
+            </div>
             <button className="toCheckout">Go to Checkout</button>
         </div>
     );
 
 }
+
 
 
 export default Cart;

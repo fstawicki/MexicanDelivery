@@ -2,14 +2,14 @@ import {FC} from "react";
 import '../styles/HeroBanner.scss';
 
 interface Props{
-
+    title: string;
 }
 
-const HeroBanner: FC<Props> = () => {
+const HeroBanner: FC<Props> = (props) => {
 
     return(
         <div className="heroBanner">
-            <h2>Welcome to Mexican Delivery</h2>
+            <h2>{props.title}</h2>
         </div>
     );
 

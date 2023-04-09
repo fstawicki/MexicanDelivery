@@ -47,7 +47,7 @@ const Products: FC <Props> = () => {
     
     return(
         <>
-        <HeroBanner />
+        <HeroBanner title={'Welcome to Mexican Delivery'} />
         <div className="products">
             <h2>See all dishes here:</h2>
             <div className="gridContainer">

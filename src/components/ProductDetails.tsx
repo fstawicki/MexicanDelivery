@@ -9,6 +9,10 @@ interface Props{
 
 const ProductDetails: FC<Props> = (props: Props) => {
 
+
+    
+
+
     return(
         <div className="productDetails">
             <div className="productImage">
