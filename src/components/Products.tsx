@@ -1,6 +1,6 @@
 import {FC, useEffect, useState} from 'react';
 import Card from './Card';
-import axios from 'axios';
+import axios, { all } from 'axios';
 
 import '../styles/Products.scss';
 import HeroBanner from './HeroBanner';
@@ -9,7 +9,15 @@ interface Props{
 
 }
 
+interface Product {
+    id?: string;
+    title: string;
+    image: string;
+}
+
 const Products: FC <Props> = () => {
+
+    const [allProducts, setAllProducts] = useState<Product[]>([]);
 
     const options = {
     method: 'GET',
@@ -20,12 +28,21 @@ const Products: FC <Props> = () => {
     }
     };
 
-    axios.get(options.url, { headers: options.headers })
-    .then(function (response: { data: any; }){
-        console.log(response.data.slice(0,10));
-    }).catch(function (error: any) {
-        console.error(error);
-    });
+    const randomPrice = () => {
+        return Math.floor(Math.random() * 100) + 1;
+    }
+
+
+    useEffect(() => {
+        
+        axios.get(options.url, { headers: options.headers })
+        .then(function (response: { data: any; }){
+            setAllProducts(response.data)
+        }).catch(function (error: any) {
+            console.error(error);
+        });
+
+    },[])
 
     return(
         <>
@@ -33,6 +50,11 @@ const Products: FC <Props> = () => {
         <div className="products">
             <h2>See all dishes here:</h2>
             <div className="gridContainer">
+                {
+                    allProducts.map((product) => (
+                        <Card key={product.id} productID={product.id} productName={product.title} productPrice={randomPrice()} imageURL={product.image} productAlt={product.title} />
+                    ))
+                }
             </div>
         </div>
         </>

@@ -4,7 +4,7 @@ import '../styles/Card.scss';
 
 
 interface Props{
-    productID?: number;
+    productID?: string;
     productName: string;
     productPrice: number;
     imageURL?: string;
