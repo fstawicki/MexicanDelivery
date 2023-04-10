@@ -4,6 +4,7 @@ import Cart from "./components/Cart";
 import { Route, Routes } from "react-router-dom";
 import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
+import NoPage from "./components/NoPage";
 
 const App: FC = () => {
 
@@ -14,6 +15,7 @@ const App: FC = () => {
         <Route path="/" element={<ProductDetails />} />
         {/* <Route path="/" element={<Products />} />
         <Route path="/cart" element={<Cart />} /> */}
+        <Route path="*" element={<NoPage />} />
       </Routes>
     </div>
   );
