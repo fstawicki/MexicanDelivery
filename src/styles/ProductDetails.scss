@@ -27,7 +27,7 @@
 .productDescription{
 
     .productName{
-        color: rebeccapurple;
+        color: red;
         padding-bottom: 3rem;
 
         @media (max-width: 1025px){
@@ -35,18 +35,18 @@
         }
     }
 
-    .details{
+    .ingredients{
         color: gray;
     }
 
-    .details,
+    .ingredients,
     .description,
     .productPrice,
     .quantityContainer{
         padding-bottom: 1rem;
     }
 
-    .details,
+    .ingredients,
     .productPrice,
     .description,
     .quantityText,
@@ -54,16 +54,18 @@
         font-size: 1.1rem;
     }
 
-    .description{
-        text-align: justify;
+    .ingredientList{
+        list-style: none;
+        
+    }
 
-        @media (max-width: 1025px){
-            font-size: 1rem;
-        }
+    .ingredient{
+        padding: 0.5rem 0;
     }
 
     .productPrice{
         padding: 2rem 0;
+        border-top: 1px solid grey;
     }
 
     .quantityContainer{
@@ -78,7 +80,8 @@
 
     .quantityInput{
         padding: 0.8rem;
-        border: 1px solid red;
+        border: 1px solid green;
+        border-radius: 5%;
         width: 100px;
 
     }
@@ -86,7 +89,9 @@
     .addToCartBtn{
         padding: 1rem 2rem;
         font-size: 1rem;
-        border: 1px solid red;
+        border: 1px solid green;
+        border-radius: 5%;
+        background-color: white;
 
         span{
             padding-left: 0.5rem;
@@ -96,7 +101,8 @@
 
         &:hover{
             cursor: pointer;
-            background-color: aqua;
+            background-color: green;
+            color: white;
         }
     }
 

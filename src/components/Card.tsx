@@ -1,5 +1,7 @@
 import {FC} from "react";
 import '../styles/Card.scss';
+import { Link } from "react-router-dom";
+import { FaCartPlus } from "react-icons/fa";
 
 
 
@@ -18,6 +20,9 @@ const Card: FC<Props> = (props: Props) => {
             <img src={props.imageURL} alt={props.productAlt} className="productImg" />
             <p className="productName">{props.productName}</p>
             <p className="productPrice">{props.productPrice} zł</p>
+            <button className="addToCartBtn">
+                Add to Cart<span><FaCartPlus/></span>
+            </button>
         </div>
     );
 }
