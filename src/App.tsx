@@ -12,9 +12,9 @@ const App: FC = () => {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<ProductDetails />} />
-        {/* <Route path="/" element={<Products />} />
-        <Route path="/cart" element={<Cart />} /> */}
+        <Route path="/" element={<Products />} />
+        <Route path="/product/:productId" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </div>

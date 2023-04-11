@@ -29,10 +29,6 @@ const Products: FC <Props> = () => {
     }
     };
 
-    const randomPrice = () => {
-        return Math.floor(Math.random() * 100) + 1;
-    }
-
     useEffect(() => {
         
         axios.get(options.url, { headers: options.headers })
@@ -57,7 +53,6 @@ const Products: FC <Props> = () => {
                             key={product.id} 
                             productID={product.id} 
                             productName={product.title}
-                            productPrice={randomPrice()} 
                             imageURL={product.image} 
                             productAlt={product.title} 
                         />
