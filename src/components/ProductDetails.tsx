@@ -7,7 +7,7 @@ import axios from 'axios';
 import '../styles/ProductDetails.scss';
 
 interface Props{
-    productID?: string;
+
 }
 
 interface ProductDetails {
@@ -20,39 +20,14 @@ interface ProductDetails {
 
 const ProductDetails: FC<Props> = (props: Props) => {
 
-    const { productID } = useParams<{ productID: string }>();
-    const [details, setDetails] = useState<ProductDetails[]>([]);
-    const [idNumber, setIdNumber] = useState();
-
-    console.log(productID);
+    const { productId } = useParams<string>();
+    const [details, setDetails] = useState<ProductDetails []>([]);
 
     const getPrice = () => {
         return Number(details[0].id)*10;
     }
-
-    // const options = {
-    //     method: 'GET',
-    //     url: `https://the-mexican-food-db.p.rapidapi.com/${productID}`,
-    //     headers: {
-    //       'X-RapidAPI-Key': '0e080c7fe2mshbaae96571089130p16a7bbjsn016819b32a15',
-    //       'X-RapidAPI-Host': 'the-mexican-food-db.p.rapidapi.com'
-    //     }
-    //   };
-
-    //   useEffect(()=> {
-          
-    //     axios.request(options).then(function (response) {
-    //         setDetails(response.data);
-    //     }).catch(function (error) {
-    //         console.error(error);
-    //     });
-
-    //   }, [])
       
-      
-      useEffect(()=> {
-        const url = `https://the-mexican-food-db.p.rapidapi.com/${productID}`;
-        console.log(url);
+        const url = `https://the-mexican-food-db.p.rapidapi.com/${productId}`;
         const options = {
           method: 'GET',
           url: url,
@@ -61,16 +36,18 @@ const ProductDetails: FC<Props> = (props: Props) => {
             'X-RapidAPI-Host': 'the-mexican-food-db.p.rapidapi.com'
           }
         };
-        axios.request(options)
-          .then(function (response) {
-            setDetails(response.data);
-          })
-          .catch(function (error) {
-            console.error(error);
-          });
-      }, []);
 
-    console.log(details);
+
+        useEffect(() => {
+          axios.request(options)
+            .then(function (response) {
+              setDetails(old => [...old, response.data]);
+            })
+            .catch(function (error) {
+              console.error(error);
+            });
+
+        },[])
 
     
     return(
