@@ -1,8 +1,9 @@
-import {FC, useEffect, useState} from 'react';
-import { FaCartPlus } from "react-icons/fa";
-import { Link, useParams } from 'react-router-dom';
-
+import { FC, useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+import { FaCartPlus } from "react-icons/fa";
+import { BiArrowBack, BiChevronRight } from 'react-icons/bi';
 
 import '../styles/ProductDetails.scss';
 
@@ -21,6 +22,9 @@ interface ProductDetails {
 const ProductDetails: FC<Props> = (props: Props) => {
 
     const { productId } = useParams<string>();
+
+    const navigate = useNavigate();
+
     const [details, setDetails] = useState<ProductDetails []>([]);
 
     const getPrice = () => {
@@ -36,7 +40,6 @@ const ProductDetails: FC<Props> = (props: Props) => {
             'X-RapidAPI-Host': 'the-mexican-food-db.p.rapidapi.com'
           }
         };
-
 
         useEffect(() => {
           axios.request(options)
@@ -61,25 +64,23 @@ const ProductDetails: FC<Props> = (props: Props) => {
                     <h1 className='productName'>{details[0].title}</h1>
                     <p className='ingredients'>Ingredients: </p>
                     <ul className="ingredientList">
-                        {details[0].ingredients?.map((ingredient: string, index: number)=> (
-                            <li className='ingredient' key={index}>{ingredient}</li>
-                        ))}
+                      {details[0].ingredients?.map((ingredient: string, index: number)=> (
+                        <li className='ingredient' key={index}><span><BiChevronRight/></span>{ingredient}</li>
+                      ))}
                     </ul>
-                    <p className="productPrice">{getPrice()} zł</p>
+                    <p className="productPrice">Price: {getPrice()} zł</p>
                     <div className="quantityContainer">
                         <p className="quantityText">Quantity: </p>
                         <input type="number" name="quantity" className='quantityInput' min={0}/>
+                        <button className="btn addToCartBtn">Add to Cart<span><FaCartPlus/></span></button>
                     </div>
-                    <button className="addToCartBtn">
-                    Add to Cart<span><FaCartPlus/></span>
-                    </button>
-                    <button className="backToMenuBtn">
-                    <Link to={'/'}>Back to Menu</Link>
-                    </button>
+                    <button className="btn backToMenuBtn" onClick={() => {navigate('/');}}><BiArrowBack/><span>Back to Menu</span></button>
                 </div>
             </>
         )}
     </div>
+
+
     );
 }
 

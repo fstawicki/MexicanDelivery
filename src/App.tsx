@@ -10,7 +10,7 @@ const App: FC = () => {
 
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Products />} />
         <Route path="/product/:productId" element={<ProductDetails />} />
