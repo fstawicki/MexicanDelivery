@@ -20,25 +20,25 @@ const Products: FC <Props> = () => {
 
     const [allProducts, setAllProducts] = useState<Product[]>([]);
 
-    const options = {
-    method: 'GET',
-    url: 'https://the-mexican-food-db.p.rapidapi.com/',
-    headers: {
-        'X-RapidAPI-Key': '0e080c7fe2mshbaae96571089130p16a7bbjsn016819b32a15',
-        'X-RapidAPI-Host': 'the-mexican-food-db.p.rapidapi.com'
-    }
-    };
+    // const options = {
+    // method: 'GET',
+    // url: 'https://the-mexican-food-db.p.rapidapi.com/',
+    // headers: {
+    //     'X-RapidAPI-Key': '0e080c7fe2mshbaae96571089130p16a7bbjsn016819b32a15',
+    //     'X-RapidAPI-Host': 'the-mexican-food-db.p.rapidapi.com'
+    // }
+    // };
 
-    useEffect(() => {
+    // useEffect(() => {
         
-        axios.get(options.url, { headers: options.headers })
-        .then(function (response: { data: any; }){
-            setAllProducts(response.data)
-        }).catch(function (error: any) {
-            console.error(error);
-        });
+    //     axios.get(options.url, { headers: options.headers })
+    //     .then(function (response: { data: any; }){
+    //         setAllProducts(response.data)
+    //     }).catch(function (error: any) {
+    //         console.error(error);
+    //     });
 
-    },[])
+    // },[])
 
     
     return(
@@ -47,7 +47,7 @@ const Products: FC <Props> = () => {
         <div className="products">
             <h2>See all dishes here:</h2>
             <div className="gridContainer">
-                {
+                {/* {
                     allProducts.map((product) => (
                         <Card
                             key={product.id} 
@@ -57,7 +57,23 @@ const Products: FC <Props> = () => {
                             productAlt={product.title} 
                         />
                     ))
-                }
+                } */}
+                <Card
+                            key={'1'} 
+                            productID={'1'} 
+                            productName={'1'}
+                        />
+                        <Card
+                            key={'1'} 
+                            productID={'1'} 
+                            productName={'1'}
+                        />
+                        <Card
+                            key={'1'} 
+                            productID={'1'} 
+                            productName={'1'}
+                            imageURL={''}
+                        />
             </div>
         </div>
         </>
