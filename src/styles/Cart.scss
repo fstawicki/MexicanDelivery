@@ -13,7 +13,7 @@
         text-align: center;
         font-size: 1rem;
     }
-}
+
 
 .title{
     display: flex;
@@ -46,7 +46,7 @@
     }
 }
 
-.toCheckout{
+.btn{
 
     font-size: 1rem;
 
@@ -67,6 +67,17 @@
 
 }
 
+.backToMenuBtn{
+
+    svg{
+        margin: auto 0;
+    }
+    
+    span{
+        margin-left: 0.5rem;
+    }
+}
+
 .deleteItemBtn{
     a{
         color: red;
@@ -78,4 +89,7 @@
             color: rgb(119, 0, 0);
         }
     }
+}
+
+
 }
