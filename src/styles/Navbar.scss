@@ -19,25 +19,9 @@
         color: black;
     }
 
-}
-
-.navbar_left{
-    
-    .menu{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        list-style: none;
-    
-        .menuitem{
-            padding-right: 1rem;
-        }
-
-    }
-}
-
-
 .navbar_logo{
+
+    margin: 0 auto;
     
     h1{
         transition: 0.4s ease;
@@ -52,12 +36,12 @@
 
 .navbar_right{
 
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    flex-direction: row;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1rem 1rem 0 0;
 
-    p{
+        p{
         font-size: 1.5rem;
         transition: 0.3s ease;
         text-decoration: none;
@@ -75,5 +59,9 @@
             color: rgb(0, 51, 0);
         }
     }
-  
+}
+
+
+
+
 }
