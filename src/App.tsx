@@ -5,19 +5,22 @@ import { Route, Routes } from "react-router-dom";
 import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import NoPage from "./components/NoPage";
+import CartProvider from "./store/CartProvider";
 
 const App: FC = () => {
 
   return (
-    <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Products />} />
-        <Route path="/product/:productId" element={<ProductDetails />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<NoPage />} />
-      </Routes>
-    </div>
+    <CartProvider>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Products />} />
+          <Route path="/product/:productId" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<NoPage />} />
+        </Routes>
+      </div>
+    </CartProvider>
   );
 }
 
