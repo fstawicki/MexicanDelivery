@@ -1,4 +1,4 @@
-import {FC} from 'react';
+import {FC, useContext} from 'react';
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
@@ -10,6 +10,7 @@ interface Props{
 
 const Navbar: FC<Props> = () =>{
 
+    
     return(
         <nav className="navbar">
             <div className="navbar_logo">

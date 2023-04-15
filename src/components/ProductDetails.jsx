@@ -1,31 +1,37 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { FaCartPlus } from "react-icons/fa";
 import { BiArrowBack, BiChevronRight } from 'react-icons/bi';
 
+import CartContext from '../store/CartContext';
 import '../styles/ProductDetails.scss';
 
-interface Props{
+// interface Props{
 
-}
+// }
 
-interface ProductDetails {
-    id?: string;
-    title: string;
-    portion?: string;
-    ingredients?: [];
-    image: string;
-}
+// interface ProductDetails {
+//     id?: string;
+//     title: string;
+//     portion?: string;
+//     ingredients?: [];
+//     image: string;
+// }
 
-const ProductDetails: FC<Props> = (props: Props) => {
+const ProductDetails = (props) => {
 
-    const { productId } = useParams<string>();
+    const cartCtx = useContext(CartContext);
+    const numberOfCartItems = cartCtx.items.reduce((currNumber, item) => {
+      return currNumber + item.amount;
+    }, 0);
+
+    const { productId } = useParams();
 
     const navigate = useNavigate();
 
-    const [details, setDetails] = useState<ProductDetails []>([]);
+    const [details, setDetails] = useState([]);
 
     const getPrice = () => {
         return Number(details[0].id)*10;
@@ -64,7 +70,7 @@ const ProductDetails: FC<Props> = (props: Props) => {
                     <h1 className='productName'>{details[0].title}</h1>
                     <p className='ingredients'>Ingredients: </p>
                     <ul className="ingredientList">
-                      {details[0].ingredients?.map((ingredient: string, index: number)=> (
+                      {details[0].ingredients?.map((ingredient, index)=> (
                         <li className='ingredient' key={index}><span><BiChevronRight/></span>{ingredient}</li>
                       ))}
                     </ul>
