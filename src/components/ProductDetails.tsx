@@ -8,30 +8,26 @@ import { BiArrowBack, BiChevronRight } from 'react-icons/bi';
 import CartContext from '../store/CartContext';
 import '../styles/ProductDetails.scss';
 
-// interface Props{
+interface Props{
 
-// }
+}
 
-// interface ProductDetails {
-//     id?: string;
-//     title: string;
-//     portion?: string;
-//     ingredients?: [];
-//     image: string;
-// }
+interface ProductDetails {
+    id?: string;
+    title: string;
+    portion?: string;
+    ingredients?: [];
+    image: string;
+}
 
-const ProductDetails = (props) => {
+const ProductDetails: FC<Props> = (props: Props) => {
 
-    const cartCtx = useContext(CartContext);
-    const numberOfCartItems = cartCtx.items.reduce((currNumber, item) => {
-      return currNumber + item.amount;
-    }, 0);
 
-    const { productId } = useParams();
+    const { productId } = useParams<string>();
 
     const navigate = useNavigate();
 
-    const [details, setDetails] = useState([]);
+    const [details, setDetails] = useState<ProductDetails []>([]);
 
     const getPrice = () => {
         return Number(details[0].id)*10;
@@ -70,7 +66,7 @@ const ProductDetails = (props) => {
                     <h1 className='productName'>{details[0].title}</h1>
                     <p className='ingredients'>Ingredients: </p>
                     <ul className="ingredientList">
-                      {details[0].ingredients?.map((ingredient, index)=> (
+                      {details[0].ingredients?.map((ingredient: string, index: number)=> (
                         <li className='ingredient' key={index}><span><BiChevronRight/></span>{ingredient}</li>
                       ))}
                     </ul>
