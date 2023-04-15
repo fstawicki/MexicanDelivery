@@ -22,11 +22,14 @@ const Card: FC<Props> = (props: Props) => {
                 <Link to={`/product/${props.productID}`}>
                 <img src={props.imageURL} alt={props.productAlt} className="productImg" />
                 <p className="productName">{props.productName}</p>
-                <p className="productPrice">{getPrice()} zł</p>
-                <button className="addToCartBtn">
+                </Link>
+                <div className="pricing">
+                    <p className="productPrice">{getPrice()} zł</p>
+                    <input className="quantityInput" type="number" name="quantity" id="quantity" />
+                </div>
+                <button className="addToCartBtn" onClick={() => {console.log('aaaa')}}>
                     Add to Cart<span><FaCartPlus/></span>
                 </button>
-                </Link>
             </div>
     );
 }
