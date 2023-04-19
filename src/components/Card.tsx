@@ -16,7 +16,7 @@ const Card:FC<Props>  = (Props: Props) => {
         return Number(Props.productID)*10;
     }
     
-    const amount:number = 0;
+    const amount:number = 1;
 
     return(
         
@@ -36,7 +36,7 @@ const Card:FC<Props>  = (Props: Props) => {
                 <div className="addItemDiv">
                     <div className="smallButtons">
                         <button className="smallBtn">-</button>
-                        <p className="text">in cart</p>
+                        <p className="text"><span className="amount">{amount}</span> in cart</p>
                         <button className="smallBtn">+</button>
                     </div>
                     <div className="removeBtnDiv">

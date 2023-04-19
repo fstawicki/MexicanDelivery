@@ -5,10 +5,12 @@ import { Route, Routes } from "react-router-dom";
 import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import NoPage from "./components/NoPage";
+import { ShoppingCartProvider } from "./store/CartContext";
 
 const App: FC = () => {
 
   return (
+    <ShoppingCartProvider>
       <div className="App">
         <Navbar />
         <Routes>
@@ -18,6 +20,7 @@ const App: FC = () => {
           <Route path="*" element={<NoPage />} />
         </Routes>
       </div>
+    </ShoppingCartProvider>
   );
 }
 
