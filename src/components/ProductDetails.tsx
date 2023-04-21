@@ -5,7 +5,6 @@ import axios from 'axios';
 import { FaCartPlus } from "react-icons/fa";
 import { BiArrowBack, BiChevronRight } from 'react-icons/bi';
 
-import CartContext from '../store/CartContext';
 import '../styles/ProductDetails.scss';
 
 interface Props{

@@ -6,6 +6,8 @@
 
     transition: 0.3s ease;
 
+    border: none !important;
+
     &:hover{
         cursor: pointer;
         transform: scale(1.05);
@@ -75,6 +77,7 @@
         justify-content: center;
         align-items: center;
 
+        
         margin: 1rem 0;
 
         .amount{
@@ -89,9 +92,13 @@
             font-size: 1rem;
             padding: 0.5rem;
             width: 40px;
+            border: 1px solid green;
 
             &:hover{
                 cursor: pointer;
+                background-color: green;
+                color: white;
+                border: 1px solid white;
             }
         }
     }

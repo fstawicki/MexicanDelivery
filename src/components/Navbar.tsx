@@ -3,12 +3,15 @@ import { FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 import '../styles/Navbar.scss'
+import { useShoppingCart } from '../store/CartContext';
 
 interface Props{
 
 }
 
 const Navbar: FC<Props> = () =>{
+
+    const {openCart, cartQuantity} = useShoppingCart();
 
     
     return(
@@ -19,11 +22,9 @@ const Navbar: FC<Props> = () =>{
                 </Link>
             </div>
             <div className="navbar_right">
-                <p>
-                    <Link to={"/cart"}>
-                        <FaShoppingCart className='icon' /><span className='cart_quantity'>1</span>
-                    </Link>
-                </p>
+                    <button className='cartBtn' onClick={openCart}>
+                        <FaShoppingCart className='icon' />{cartQuantity > 0 && ( <span className='cart_quantity'>{cartQuantity}</span>)}
+                    </button>
             </div>
         </nav>
     );
