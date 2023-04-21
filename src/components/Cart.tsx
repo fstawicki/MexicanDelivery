@@ -1,16 +1,12 @@
 import {FC} from 'react';
-
 import { useNavigate } from 'react-router-dom';
-
 import { FaShoppingCart } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { BiArrowBack } from 'react-icons/bi';
 
 import '../styles/Cart.scss';
 
-interface Props{}
-
-const Cart: FC<Props> = () => {
+const Cart: FC = () => {
 
     const navigate = useNavigate();
 

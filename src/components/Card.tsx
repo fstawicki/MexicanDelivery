@@ -1,8 +1,9 @@
-import {FC, useRef, useState, useContext} from "react";
+import { FC } from "react";
 import '../styles/Card.scss';
 import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 import { useShoppingCart } from "../store/CartContext";
+import { formatCurrency } from "../utilities/formatCurrency";
 
 interface Props{
     productID: number;
@@ -12,10 +13,6 @@ interface Props{
 }
 
 const Card:FC<Props>  = (Props: Props) => {
-    
-    const getPrice = () => {
-        return Props.productID*10;
-    }
     
     const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart()
 
@@ -28,7 +25,7 @@ const Card:FC<Props>  = (Props: Props) => {
                 <img src={Props.imageURL} alt={Props.productAlt} className="productImg" />
                 <p className="productName">{Props.productName}</p>
                 </Link>
-                <p className="productPrice">{getPrice()} zł</p>
+                <p className="productPrice">{formatCurrency(Props.productID*10)}</p>
                 {quantity === 0 ? (
                     <div className="addItemDiv">
                         <button className="addToCartBtn" onClick={() => increaseCartQuantity(Props.productID)}>
