@@ -1,19 +1,14 @@
-import {FC, useContext} from 'react';
+import { FC } from 'react';
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-
-import '../styles/Navbar.scss'
 import { useShoppingCart } from '../store/CartContext';
 
-interface Props{
+import '../styles/Navbar.scss'
 
-}
-
-const Navbar: FC<Props> = () =>{
+const Navbar: FC = () =>{
 
     const {openCart, cartQuantity} = useShoppingCart();
 
-    
     return(
         <nav className="navbar">
             <div className="navbar_logo">

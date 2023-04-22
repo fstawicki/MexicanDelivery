@@ -1,13 +1,8 @@
-import {FC} from 'react';
+import { FC } from 'react';
 
 import '../styles/NoPage.scss';
 
-
-interface Props{
-
-}
-
-const NoPage:FC<Props> = () => {
+const NoPage: FC = () => {
 
     return(
         <div className="NoPage">

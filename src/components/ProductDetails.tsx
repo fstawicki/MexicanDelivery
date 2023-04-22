@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, useContext } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -6,10 +6,7 @@ import { FaCartPlus } from "react-icons/fa";
 import { BiArrowBack, BiChevronRight } from 'react-icons/bi';
 
 import '../styles/ProductDetails.scss';
-
-interface Props{
-
-}
+import { useShoppingCart } from '../store/CartContext';
 
 interface ProductDetails {
     id?: string;
@@ -19,15 +16,16 @@ interface ProductDetails {
     image: string;
 }
 
-const ProductDetails: FC<Props> = (props: Props) => {
+const ProductDetails: FC = () => {
 
+  const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart()
 
-    const { productId } = useParams<string>();
-
-    const navigate = useNavigate();
-
-    const [details, setDetails] = useState<ProductDetails []>([]);
-
+  
+  const { productId } = useParams<string>();
+  const navigate = useNavigate();
+  const [details, setDetails] = useState<ProductDetails []>([]);
+  
+    
     const getPrice = () => {
         return Number(details[0].id)*10;
     }
@@ -53,6 +51,8 @@ const ProductDetails: FC<Props> = (props: Props) => {
 
         },[])
 
+        const quantity = getItemQuantity(Number(details[0].id));
+
     
     return(
         <div className="productDetails">
@@ -75,6 +75,26 @@ const ProductDetails: FC<Props> = (props: Props) => {
                         <input type="number" name="quantity" className='quantityInput' min={0}/>
                         <button className="btn addToCartBtn">Add to Cart<span><FaCartPlus/></span></button>
                     </div>
+
+                    {quantity === 0 ? (
+                    <div className="addItemDiv">
+                        <button className="addToCartBtn" onClick={() => increaseCartQuantity(Number(details[0].id))}>
+                            Add to Cart<span><FaCartPlus/></span>
+                        </button>
+                    </div>
+                ) : (
+                <div className="addItemDiv">
+                    <div className="smallButtons">
+                        <button className="smallBtn" onClick={() => decreaseCartQuantity(Number(details[0].id))}>-</button>
+                        <p className="text"><span className="amount">{quantity}</span> in cart</p>
+                        <button className="smallBtn" onClick={() => increaseCartQuantity(Number(details[0].id))}>+</button>
+                    </div>
+                    <div className="removeBtnDiv">
+                        <button className="removeBtn" onClick={() => removeFromCart(Number(details[0].id))}>Remove Item</button>
+                    </div>
+                </div>
+                )}
+
                     <button className="btn backToMenuBtn" onClick={() => {navigate('/');}}><BiArrowBack/><span>Back to Menu</span></button>
                 </div>
             </>

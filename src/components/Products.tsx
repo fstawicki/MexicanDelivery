@@ -1,25 +1,13 @@
-import {FC, useEffect, useState} from 'react';
+import { FC, useEffect } from 'react';
 import axios from 'axios';
-
-import '../styles/Products.scss';
-
 import HeroBanner from './HeroBanner';
 import Card from './Card';
 import { useShoppingCart } from '../store/CartContext';
 
-interface Props{
+import '../styles/Products.scss';
 
-}
+const Products: FC = () => {
 
-// interface Product {
-//     id?: number;
-//     title: string;
-//     image: string;
-// }
-
-const Products: FC <Props> = () => {
-
-    // const [allProducts, setAllProducts] = useState<Product[]>([]);
     const { getApiData, allProducts } = useShoppingCart();
 
     const options = {

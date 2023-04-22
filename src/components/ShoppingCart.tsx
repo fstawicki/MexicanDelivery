@@ -3,8 +3,6 @@ import { Offcanvas, OffcanvasHeader, Stack } from 'react-bootstrap';
 import { useShoppingCart } from '../store/CartContext';
 import CartItem from './CartItem';
 
-import '../styles/ShoppingCart.scss';
-
 type ShoppingCartProps = {
     isOpen: boolean
 }

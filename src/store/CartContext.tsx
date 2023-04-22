@@ -120,26 +120,3 @@ export function ShoppingCartProvider({children}: ShoppingCartProviderProps){
         </ShoppingCartContext.Provider>
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { createContext } from "react";
-
-// const CartContext = createContext({
-//     items: [],
-//     totalAmount: 0,
-//     addItem: (item: string) => {},
-//     removeItem: (id: string) => {}
-// });
-
-// export default CartContext;
