@@ -2,11 +2,9 @@ import { FC, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import { FaCartPlus } from "react-icons/fa";
 import { BiArrowBack, BiChevronRight } from 'react-icons/bi';
 
 import '../styles/ProductDetails.scss';
-import { useShoppingCart } from '../store/CartContext';
 
 interface ProductDetails {
     id?: string;
@@ -17,9 +15,6 @@ interface ProductDetails {
 }
 
 const ProductDetails: FC = () => {
-
-  const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart()
-
   
   const { productId } = useParams<string>();
   const navigate = useNavigate();
@@ -27,7 +22,7 @@ const ProductDetails: FC = () => {
   
     
     const getPrice = () => {
-        return Number(details[0].id)*10;
+        return Number(details[0]?.id)*10;
     }
       
         const url = `https://the-mexican-food-db.p.rapidapi.com/${productId}`;
@@ -51,18 +46,17 @@ const ProductDetails: FC = () => {
 
         },[])
 
-        const quantity = getItemQuantity(Number(details[0].id));
-
     
     return(
         <div className="productDetails">
+          
       {details[0] && (
             <>
                 <div className="productImage">
                     <img src={details[0].image} alt={details[0].title} className="image" />
                 </div>
                 <div className="productDescription">
-                    <h1 className='productName'>{details[0].title}</h1>
+                    <h1 className='detailsProductName'>{details[0].title}</h1>
                     <p className='ingredients'>Ingredients: </p>
                     <ul className="ingredientList">
                       {details[0].ingredients?.map((ingredient: string, index: number)=> (
@@ -70,31 +64,6 @@ const ProductDetails: FC = () => {
                       ))}
                     </ul>
                     <p className="productPrice">Price: {getPrice()} zł</p>
-                    <div className="quantityContainer">
-                        <p className="quantityText">Quantity: </p>
-                        <input type="number" name="quantity" className='quantityInput' min={0}/>
-                        <button className="btn addToCartBtn">Add to Cart<span><FaCartPlus/></span></button>
-                    </div>
-
-                    {quantity === 0 ? (
-                    <div className="addItemDiv">
-                        <button className="addToCartBtn" onClick={() => increaseCartQuantity(Number(details[0].id))}>
-                            Add to Cart<span><FaCartPlus/></span>
-                        </button>
-                    </div>
-                ) : (
-                <div className="addItemDiv">
-                    <div className="smallButtons">
-                        <button className="smallBtn" onClick={() => decreaseCartQuantity(Number(details[0].id))}>-</button>
-                        <p className="text"><span className="amount">{quantity}</span> in cart</p>
-                        <button className="smallBtn" onClick={() => increaseCartQuantity(Number(details[0].id))}>+</button>
-                    </div>
-                    <div className="removeBtnDiv">
-                        <button className="removeBtn" onClick={() => removeFromCart(Number(details[0].id))}>Remove Item</button>
-                    </div>
-                </div>
-                )}
-
                     <button className="btn backToMenuBtn" onClick={() => {navigate('/');}}><BiArrowBack/><span>Back to Menu</span></button>
                 </div>
             </>

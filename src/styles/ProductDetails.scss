@@ -44,9 +44,9 @@
 
 .productDescription{
 
-    .productName{
+    .detailsProductName{
         color: red;
-        padding-bottom: 3rem;
+        margin-top: 100px;
         font-size: 2rem;
 
         @media (max-width: 1025px){
@@ -99,44 +99,9 @@
     }
 
     .productPrice{
-        padding: 2rem 0;
+        padding-top: 2rem;
         border-top: 1px solid grey;
     }
-
-    .quantityContainer{
-        display: flex;
-        justify-content: left;
-        align-items: center;
-
-        @media(max-width: 500px){
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .quantityText,
-        .quantityInput{
-            margin-right: 1.5rem;
-
-            @media(max-width: 500px){
-                margin: 0 0 1rem 0;
-            }
-        }
-    
-        .quantityInput{
-            padding: 0.8rem;
-            border: 1px solid green;
-            border-radius: 5%;
-            width: 100px;
-            font-size: 1rem;
-    
-        }
-    
-    
-    
-    
-    }
-
-
     
 }
 
@@ -167,7 +132,6 @@
 
 .backToMenuBtn{
     border: 1px solid black;
-    margin-top: 2rem;
 
     &:hover{
         background-color: lightgray;

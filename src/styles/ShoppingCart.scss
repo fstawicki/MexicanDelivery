@@ -1,0 +1,19 @@
+.toCheckout{
+
+    font-size: 1rem;
+    padding: 0.5rem;
+    
+    margin-top: 2rem;
+    border: 1px solid green;
+    border-radius: 5%;
+
+    transition: 0.2s ease;
+    
+    &:hover{
+        cursor: pointer;
+        background-color: green;
+        color: white;
+        border: 1px solid white;
+    }
+
+}
