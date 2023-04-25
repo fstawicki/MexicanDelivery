@@ -3,6 +3,9 @@ import { Offcanvas, OffcanvasHeader, Stack } from 'react-bootstrap';
 import { useShoppingCart } from '../store/CartContext';
 import CartItem from './CartItem';
 
+import {BiArrowBack} from 'react-icons/bi';
+import { FaShoppingCart } from "react-icons/fa";
+
 import '../styles/ShoppingCart.scss';
 
 type ShoppingCartProps = {
@@ -24,7 +27,10 @@ export default function ShoppingCart({isOpen}: ShoppingCartProps){
                         <CartItem key={item.id} {...item} />
                     ))}
                 </Stack>
-                <button className='toCheckout'>Go to Checkout</button>
+                <div className="buttons">
+                    <button className='cartBtn' onClick={closeCart}><BiArrowBack/> Back to Menu</button>
+                    <button className='cartBtn toCheckout'>Go to Checkout <FaShoppingCart /></button>
+                </div>
             </Offcanvas.Body>
         </Offcanvas>
     )

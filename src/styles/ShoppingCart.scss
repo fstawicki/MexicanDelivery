@@ -1,16 +1,40 @@
-.toCheckout{
+.buttons{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
+.cartBtn{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1rem;
     padding: 0.5rem;
     
-    margin-top: 2rem;
-    border: 1px solid green;
+    
     border-radius: 5%;
-
     transition: 0.2s ease;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
     
     &:hover{
         cursor: pointer;
+        background-color: grey;
+        color: white;
+        border: 1px solid white;
+    }
+
+}
+
+
+.toCheckout{
+    border: 1px solid green;
+    margin-left: 1rem;
+
+    &:hover{
         background-color: green;
         color: white;
         border: 1px solid white;
